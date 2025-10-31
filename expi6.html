@@ -1,0 +1,31 @@
+<html>
+<body bgcolor="lavandar"><FONT COLOR="WHITE">
+<center><h1><b><u>STRING AND MATH FUNCTIONS</h1></b></u></center>
+<h4><b><u>String functions</b></u></h4>
+<script>
+var str=prompt("enter a string : ");
+  document.write("string is :"+ str +"<br>");
+  document.write("string length is :"+ str.length +"<br>");
+  document.write("string converted to uppercase :"+ str.toUpperCase() +"<br>");
+  document.write("string converted to lowercase :"+ str.toLowerCase() +"<br>");
+  document.write("character at index 1:"+ str.charAt(1)+"<br>");
+var s1="ing";
+  document.write("add ing with str="+str.concat(s1)+"<br>");
+var s2="javascript from java point indexof";
+var n=s2.lastIndexOf("In");
+  document.write(s2+"<br>");
+  document.write("the last index position of(java)="+str.lastIndexOf("java")+ "<br>");
+  document.write("sliced(2 to 4)string is:"+str.slice(2,4)+"<br>");
+</script><br>
+<h4><b><u>Math functions</b></u></h4>
+<script>
+var num=(prompt("enter a number : "));
+document.write("the square root is:"+Math.sqrt(num)+"<br>"
++"the square root in round:"+Math.round(Math.sqrt(num))+"<br>"
++"the sqrt in floor:"+Math.floor(Math.sqrt(num))+"<br>"
++"the sqrt in ceil:"+Math.ceil(Math.sqrt(num))+"<br>"
++"5 to the power of 3:"+Math.pow(5,3)+"<br>"
++"abs value of -20 is:"+Math.abs(-20)+"<br>"
++"the random num is:"+Math.random()+"<br>");
+    
+</script></body></html>
