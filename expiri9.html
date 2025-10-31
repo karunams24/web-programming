@@ -1,0 +1,19 @@
+<html>
+<body><center>
+<h3 id="text">Hover over this content.You can explore the magic</h3>
+<img id="img" src="file:///home/ksb/karuna/javascript/img.jpeg" alt="img" width="200"
+onmouseover="myfn1()" onmouseout="myfn2()"></center>
+<script>
+function myfn1()
+{
+document.getElementById("text").innerHTML="You hovered over the content";
+document.getElementById("img").src="file:///home/ksb/karuna/javascript/img.jpeg";
+}
+function myfn2()
+{
+document.getElementById("text").innerHTML="Hover over to explore something new";
+document.getElementById("img").src="file:///home/ksb/karuna/javascript/images.jpeg";
+}
+</script>
+</body>
+</html>
