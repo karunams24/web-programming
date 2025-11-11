@@ -1,0 +1,103 @@
+<html>
+<head>
+  <title>Registration Form</title>
+  <script>
+    function validateForm() {
+
+      var name = document.forms["regForm"]["name"].value.trim();
+      var email = document.forms["regForm"]["email"].value.trim();
+      var password = document.forms["regForm"]["password"].value.trim();
+      var phone = document.forms["regForm"]["phone"].value.trim();
+      var gender = document.forms["regForm"]["gender"].value;
+
+
+      if (name == "") {
+        alert("Name can't be blank");
+        return false;
+      }
+
+
+      var emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+      if (email == "") {
+        alert("Please enter your email.");
+        return false;
+      } else if (!email.match(emailPattern)) {
+        alert("Please enter a valid email address.");
+        return false;
+      }
+
+
+      if (password == "") {
+        alert("Please enter your password.");
+        return false;
+      } else if (password.length < 6) {
+        alert("Password must be at least 6 characters long.");
+        return false;
+      }
+
+
+      var phonePattern = /^[0-9]{10}$/;
+      if (phone == "") {
+        alert("Please enter your phone number.");
+        return false;
+      } else if (!phone.match(phonePattern)) {
+        alert("Please enter a valid 10-digit phone number.");
+        return false;
+      }
+
+
+      if (!gender) {
+        alert("Please select your gender.");
+        return false;
+      }
+
+      alert("Form submitted successfully!");
+      return true; // allow submission
+    }
+  </script>
+</head>
+
+<body bgcolor="#FFB6A3">
+  <center><h1><u><font color="yellow">REGISTRATION FORM</font></u></h1></center>
+<form name="regForm" onsubmit="return validateForm()">
+    Name: <input type="text" name="name"><br><br>
+
+    Email ID: <input type="email" name="email"><br><br>
+
+    Password: <input type="password" name="password"><br><br>
+
+    Date of Birth: <input type="date" name="dob"><br><br>
+
+    Phone Number: <input type="text" name="phone"><br><br>
+
+    Address: <textarea name="address" rows="2" cols="30"></textarea><br><br>
+
+    Course:
+    <select name="course">
+      <option value="MCA">MCA</option>
+      <option value="MBA">MBA</option>
+      <option value="B.Tech">B.Tech</option>
+      <option value="CS">CS</option>
+    </select><br><br>
+
+    Gender:
+    <input type="radio" name="gender" value="Male">Male
+    <input type="radio" name="gender" value="Female">Female
+    <input type="radio" name="gender" value="Other">Other
+    <br><br>
+
+    Languages Known:
+    <input type="checkbox" name="lang" value="Malayalam">Malayalam
+    <input type="checkbox" name="lang" value="Hindi">Hindi
+    <input type="checkbox" name="lang" value="English">English
+    <input type="checkbox" name="lang" value="French">French
+    <br><br>
+
+    <center>
+      <input type="submit" value="Submit">
+      <input type="reset" name="reset" value="reset">
+    </center>
+  </form>
+</body>
+</html>
+
