@@ -1,0 +1,171 @@
+<html>
+<head>
+<center>
+<title>online exam</title>
+<body>
+<h2>Online Exam</h2>
+<style>
+body{
+font-family:Arial, sans-serif;
+margin:20px;
+}
+.timer{
+   font-size:20px;
+   font-weight:bold;
+}
+.question{
+margin-bottom:20px;
+}
+.btn{
+  padding:10px 20px;
+  background-color:black;
+  color:white;
+  border:none;
+  cursor:pointer;
+}
+
+</style>
+</head>
+</center>
+<body bgcolor="yellow">
+<center><h1>ONLINE EXAMINATION</h1></center>
+<div class="timer" id="timer">Time Left:1:00</div>
+<form id="examform">
+
+<div class="Question">
+<h3>Q1.What is the capital of france?</h3>
+<input type="radio" name="q1" value="London" id="q1a">London<br>
+<input type="radio" name="q1" value="Berlin" id="q1b">Berlin<br>
+<input type="radio" name="q1" value="Paris" id="q1c">Paris<br>
+<input type="radio" name="q1" value="Lisbon" id="q1d">Lisbon<br>
+</div>
+
+<div class="Question">
+<h3>Q2.Who was the first Prime Minister of India?</h3>
+<input type="radio" name="q2" value="Sardar Vallabhai Patel" id="q2a">Sardar Vallabhai Patel<br>
+<input type="radio" name="q2" value="Jawaharlal Nehru" id="q2b">Jawaharlal Nehru<br>
+<input type="radio" name="q2" value="Subhash Chandra Bose" id="q2c">Subhash Chandra Bose<br>
+<input type="radio" name="q2" value="Abdul Kalam Azad" id="q2d">Abdul Kalam Azad<br>
+</div>
+
+<div class="Question">
+<h3>Q3.Which is the smallest continent in the world?</h3>
+<input type="radio" name="q3" value="Asia" id="q3a">Asia<br>
+<input type="radio" name="q3" value="South America" id="q3b">South America<br>
+<input type="radio" name="q3" value="Africa" id="q3c">Africa<br>
+<input type="radio" name="q3" value="Australia" id="q3d">Australia<br>
+</div>
+
+<div class="Question">
+<h3>Q4.Which is the longest river in the world?</h3>
+<input type="radio" name="q4" value="Nile" id="q4a">Nile<br>
+<input type="radio" name="q4" value="Amazon" id="q4b">Amazon<br>
+<input type="radio" name="q4" value="Ganga" id="q4c">Ganga<br>
+<input type="radio" name="q4" value="Mississippi" id="q4d">Mississippi<br>
+</div>
+
+<div class="Question">
+<h3>Q5.Which planet in the solar system is known as the “Red Planet”?</h3>
+<input type="radio" name="q5" value="Jupiter" id="q5a">Jupiter<br>
+<input type="radio" name="q5" value="Mars" id="q5b">Mars<br>
+<input type="radio" name="q5" value="Saturn" id="q5c">Saturn<br>
+<input type="radio" name="q5" value="Venus" id="q5d">Venus<br>
+</div>
+
+<div class="Question">
+<h3>Q6.Mount Everest is located in which mountain range?</h3>
+<input type="radio" name="q6" value="Alps" id="q6a">Alps<br>
+<input type="radio" name="q6" value="Andes" id="q6b">Andes<br>
+<input type="radio" name="q6" value="Rockies" id="q6c">Rockies<br>
+<input type="radio" name="q6" value="Himalayas" id="q6d">Himalayas<br>
+</div>
+
+<div class="Question">
+<h3>Q7.Which ocean is the largest in the world?</h3>
+<input type="radio" name="q7" value="Atlantic Ocean" id="q7a">Atlantic Ocean<br>
+<input type="radio" name="q7" value="Indian Ocean" id="q7b">Indian Ocean<br>
+<input type="radio" name="q7" value="Pacific Ocean" id="q7c">Pacific Ocean<br>
+<input type="radio" name="q7" value="Arctic Ocean" id="q7d">Arctic Ocean<br>
+</div>
+
+<div class="Question">
+<h3>Q8.Which state is also known as the “fruit bowl” of India?</h3>
+<input type="radio" name="q8" value="Himachal Pradesh" id="q8a">Himachal Pradesh<br>
+<input type="radio" name="q8" value="Punjab" id="q8b">Punjab<br>
+<input type="radio" name="q8" value="Bihar" id="q8c">Bihar<br>
+<input type="radio" name="q8" value="Karnataka" id="q8d">Karnataka<br>
+</div>
+
+<div class="Question">
+<h3>Q9.Which is the largest island?</h3>
+<input type="radio" name="q9" value="New Guinea" id="q9a">New Guinea<br>
+<input type="radio" name="q9" value="Andaman Nicobar" id="q9b">Andaman Nicobar<br>
+<input type="radio" name="q9" value="Greenland" id="q9c">Greenland<br>
+<input type="radio" name="q9" value="Hawaii" id="q9d">Hawaii<br>
+</div>
+
+<div class="Question">
+<h3>Q10.Which one of the following countries is not in Africa?</h3>
+<input type="radio" name="q10" value="Morocco" id="q10a">Morocco<br>
+<input type="radio" name="q10" value="Yemen" id="q10b">Yemen<br>
+<input type="radio" name="q10" value="Mali" id="q10c">Mali<br>
+<input type="radio" name="q10" value="Keniya" id="q10d">Keniya<br>
+</div>
+
+<center><button type="button" class="btn" onclick="SubmitExam()">Submit</button></center>
+</form>
+<p id="result"></p>
+<script>
+let timer=60;
+let timerActive=true;
+const timerElement=document.getElementById("timer");
+
+function UpdateTimer(){
+const minutes=Math.floor(timer/60);
+const seconds=timer%60;
+timerElement.textContent=`Time Left: ${minutes}:${seconds < 10 ? '0' : ''} ${seconds}`;
+if(timer>0&& timerActive){
+timer--;
+setTimeout(UpdateTimer,1000);
+}else{
+alert("Time is Up!");
+SubmitExam();
+}
+}
+UpdateTimer();
+
+function SubmitExam(){
+const form=document.getElementById("examform");
+const resultElement=document.getElementById("result");
+
+const answers={
+q1:"Paris",
+q2:"Jawaharlal Nehru",
+q3:"Australia",
+q4:"Nile",
+q5:"Mars",
+q6:"Himalayas",
+q7:"Pacific Ocean",
+q8:"Himachal Pradesh",
+q9:"Greenland",
+q10:"Yemen"
+};
+
+let score=0;
+let total=Object.keys(answers).length;
+
+for(let key in answers){
+const options=form.elements[key];
+const selected=[...options].find(input=>input.checked);
+if(selected && selected.value===answers[key]){
+score++
+}
+}
+resultElement.textContent=`You Scored ${score}/${total}`;
+resultElement.style.fontSize="18px";
+resultElement.style.fontWeight="bold";
+form.style.display="none";
+}
+</script>
+</body>
+</html>
